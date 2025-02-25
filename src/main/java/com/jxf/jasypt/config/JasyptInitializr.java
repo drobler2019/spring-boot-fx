@@ -3,7 +3,6 @@ package com.jxf.jasypt.config;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
