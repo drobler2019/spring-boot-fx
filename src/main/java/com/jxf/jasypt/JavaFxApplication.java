@@ -14,18 +14,18 @@ public class JavaFxApplication extends Application {
     @Override
     public void start(Stage stage) {
         var jasyptEvent = new JasyptEvent(stage);
-        this.context.publishEvent(jasyptEvent);
+        context.publishEvent(jasyptEvent);
     }
 
     @Override
     public void stop() {
-        this.context.close();
+        context.close();
         Platform.exit();
     }
 
     @Override
     public void init() {
-        this.context = new SpringApplicationBuilder(JasyptApplication.class).run();
+        context = new SpringApplicationBuilder(JasyptApplication.class).run();
     }
 
 }
