@@ -39,7 +39,7 @@ public class JasyptServiceImpl implements JasyptService {
             stringEncryptor.setPassword(keyText);
             return stringEncryptor.decrypt(valueText);
         } catch (EncryptionOperationNotPossibleException e) {
-            throw new EncryptionOperationNotPossibleException("no fue posible desencriptar porque la llave secreta es diferente");
+            throw new EncryptionOperationNotPossibleException("no fue posible desencriptar porque la llave secreta o el valor es diferente");
         }
     }
 
