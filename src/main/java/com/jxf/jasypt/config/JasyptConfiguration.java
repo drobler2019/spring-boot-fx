@@ -2,15 +2,18 @@ package com.jxf.jasypt.config;
 
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
 import org.jasypt.encryption.pbe.config.SimpleStringPBEConfig;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 import static com.jxf.jasypt.constants.JasyptUtil.*;
 
 @Configuration
 public class JasyptConfiguration {
 
-    @Bean("encryptor")
+    @Bean(name = "encryptor")
+    @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     public PooledPBEStringEncryptor encryptor() {
         var encryptor = new PooledPBEStringEncryptor();
         var config = new SimpleStringPBEConfig();

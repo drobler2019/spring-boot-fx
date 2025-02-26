@@ -43,13 +43,12 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jxf.jasypt.controller.JasyptController">
    <children>
-      <GridPane layoutX="66.0" layoutY="88.0" prefHeight="324.0" prefWidth="868.0">
+      <GridPane layoutX="14.0" layoutY="88.0" prefHeight="324.0" prefWidth="1451.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="389.0" minWidth="10.0" prefWidth="146.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="822.0" minWidth="10.0" prefWidth="722.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="389.0" minWidth="10.0" prefWidth="123.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1345.0" minWidth="10.0" prefWidth="1328.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints maxHeight="165.0" minHeight="10.0" prefHeight="132.0" vgrow="SOMETIMES" />
@@ -59,7 +58,7 @@
          <children>
             <Label alignment="TOP_LEFT" text="LLave Secreta:" textOverrun="CENTER_ELLIPSIS" GridPane.halignment="RIGHT">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
                <GridPane.margin>
                   <Insets right="15.0" />
@@ -67,7 +66,7 @@
             </Label>
             <Label alignment="TOP_LEFT" text="Valor:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
                <GridPane.margin>
                   <Insets right="15.0" />
@@ -75,27 +74,27 @@
             </Label>
             <Label alignment="TOP_LEFT" contentDisplay="TOP" text="Resultado:" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
                <GridPane.margin>
                   <Insets right="15.0" />
                </GridPane.margin>
             </Label>
-            <TextField prefHeight="50.0" prefWidth="775.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="valor" prefHeight="50.0" prefWidth="1273.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font>
             </TextField>
-            <TextField prefHeight="50.0" prefWidth="775.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="resultado" prefHeight="50.0" prefWidth="775.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font>
             </TextField>
             <HBox prefHeight="50.0" prefWidth="451.0" GridPane.columnIndex="1">
                <children>
-                  <TextField prefHeight="50.0" prefWidth="373.0">
+                  <TextField fx:id="llaveSecreta" prefHeight="50.0" prefWidth="373.0">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                      <HBox.margin>
                         <Insets top="33.0" />
@@ -107,17 +106,22 @@
       </GridPane>
       <HBox layoutX="301.0" layoutY="453.0" prefHeight="50.0" prefWidth="399.0" spacing="30.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="400.0" text="Encriptar">
+            <Button mnemonicParsing="false" onAction="#encryptText" prefHeight="60.0" prefWidth="400.0" text="Encriptar">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="400.0" text="Desencriptar">
+            <Button mnemonicParsing="false" onAction="#decryptText" prefHeight="60.0" prefWidth="400.0" text="Desencriptar">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
          </children>
       </HBox>
+      <Label fx:id="mensajeError" alignment="TOP_LEFT" layoutX="137.0" layoutY="412.0" prefHeight="20.0" prefWidth="563.0" textFill="RED" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

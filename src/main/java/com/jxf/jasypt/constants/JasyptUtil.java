@@ -10,4 +10,8 @@ public class JasyptUtil {
     public static final String OUT_PUT_TYPE = "org.jasypt.iv.RandomIvGenerator";
     public static final String FORMAT_JASYPT = "ENC(%s)";
 
+    public static boolean validValueFiled(String value) {
+        return value == null || value.isBlank();
+    }
+
 }
