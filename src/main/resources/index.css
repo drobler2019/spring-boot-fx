@@ -31,3 +31,7 @@
  -fx-background-color: white;
  -fx-text-fill: black;
 }
+
+#pane-container-buttons {
+ -fx-background-color: #262a2d;
+}

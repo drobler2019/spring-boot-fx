@@ -2,9 +2,9 @@ package com.jxf.jasypt.config;
 
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationListener;
@@ -15,6 +15,9 @@ import java.io.IOException;
 
 @Component
 public class JasyptInitializr implements ApplicationListener<JasyptEvent> {
+
+    private static final double WIDTH = 1500.0;
+    private static final double HEIGHT = 700.0;
 
     @Value("classpath:/index.fxml")
     private Resource resource;
@@ -42,13 +45,17 @@ public class JasyptInitializr implements ApplicationListener<JasyptEvent> {
                 var url = resource.getURL();
                 var loader = new FXMLLoader(url);
                 loader.setControllerFactory(applicationContext::getBean);
-                Parent root = loader.load();
+                Pane root = loader.load();
                 var stage = event.getStage();
                 stage.getIcons().add(img);
                 stage.setTitle(applicationTitle);
+                root.setMinSize(WIDTH, HEIGHT);
+                root.setMaxSize(WIDTH,HEIGHT);
+                root.setPrefSize(WIDTH,HEIGHT);
                 var scene = new Scene(root);
                 scene.getStylesheets().add(stylesSheet.getURL().toExternalForm());
                 stage.setScene(scene);
+                stage.setResizable(false);
                 stage.show();
             } catch (IOException e) {
                 throw new RuntimeException(e);

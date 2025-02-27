@@ -43,7 +43,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1500.0" styleClass="pane-container" stylesheets="@index.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jxf.jasypt.controller.JasyptController">
+<Pane maxHeight="-Infinity" maxWidth="1500.0" minHeight="700.0" minWidth="-Infinity" prefHeight="700.0" prefWidth="1500.0" styleClass="pane-container" stylesheets="@index.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jxf.jasypt.controller.JasyptController">
    <children>
       <GridPane layoutX="14.0" layoutY="88.0" prefHeight="324.0" prefWidth="1451.0">
         <columnConstraints>
@@ -104,24 +104,25 @@
             </HBox>
          </children>
       </GridPane>
-      <HBox layoutX="301.0" layoutY="453.0" prefHeight="50.0" prefWidth="399.0" spacing="30.0">
-         <children>
-            <Button id="encriptar" mnemonicParsing="false" onAction="#encryptText" prefHeight="60.0" prefWidth="400.0" text="Encriptar">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
-            <Button id="desencriptar" mnemonicParsing="false" onAction="#decryptText" prefHeight="60.0" prefWidth="400.0" text="Desencriptar">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
-         </children>
-      </HBox>
+      <HBox layoutX="301.0" layoutY="453.0" prefHeight="50.0" prefWidth="399.0" spacing="30.0" />
       <Label fx:id="mensajeError" alignment="TOP_LEFT" layoutX="137.0" layoutY="412.0" prefHeight="20.0" prefWidth="563.0" textFill="RED" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
+      <Pane id="pane-container-buttons" layoutY="520.0" prefHeight="183.0" prefWidth="1500.0">
+         <children>
+            <Button id="encriptar" layoutX="421.0" layoutY="75.0" mnemonicParsing="false" onAction="#encryptText" prefHeight="60.0" prefWidth="237.0" text="Encriptar">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button id="desencriptar" layoutX="750.0" layoutY="75.0" mnemonicParsing="false" onAction="#decryptText" prefHeight="60.0" prefWidth="237.0" text="Desencriptar">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
    </children>
 </Pane>
