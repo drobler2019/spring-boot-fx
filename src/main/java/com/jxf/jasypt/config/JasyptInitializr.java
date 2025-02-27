@@ -16,7 +16,7 @@ import java.io.IOException;
 @Component
 public class JasyptInitializr implements ApplicationListener<JasyptEvent> {
 
-    private static final double WIDTH = 1500.0;
+    private static final double WIDTH = 1200.0;
     private static final double HEIGHT = 700.0;
 
     @Value("classpath:/index.fxml")
