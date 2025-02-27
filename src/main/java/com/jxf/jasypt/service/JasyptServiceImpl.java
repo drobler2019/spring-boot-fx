@@ -8,13 +8,13 @@ import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import static com.jxf.jasypt.constants.JasyptUtil.FORMAT_JASYPT;
-import static com.jxf.jasypt.constants.JasyptUtil.validValueFiled;
+import static com.jxf.jasypt.constants.JasyptUtil.*;
 
 @Service
 public class JasyptServiceImpl implements JasyptService {
 
-    private static final String ERROR_MESSAGE_ASCII = "la llave secreta no es ASCII";
+
+    private static final String VALUE_ID_FIELD_RESULTADO = "resultado";
     private final ObjectFactory<PooledPBEStringEncryptor> objectFactory;
 
     public JasyptServiceImpl(@Qualifier("encryptor") ObjectFactory<PooledPBEStringEncryptor> objectFactory) {
@@ -46,7 +46,7 @@ public class JasyptServiceImpl implements JasyptService {
             stringEncryptor.setPassword(keyText);
             return stringEncryptor.decrypt(valueText);
         } catch (EncryptionOperationNotPossibleException | StringIndexOutOfBoundsException e) {
-            throw new EncryptionOperationNotPossibleException("Error: Llave secreta diferente o valor con formato incorrecto");
+            throw new EncryptionOperationNotPossibleException(ERROR_MESSAGE_KEY_SECRET_OR_VALUE);
         } catch (EncryptionInitializationException e) {
             throw new EncryptionOperationNotPossibleException(ERROR_MESSAGE_ASCII);
         }
@@ -59,12 +59,17 @@ public class JasyptServiceImpl implements JasyptService {
             throw new IllegalArgumentException(message(keyText));
         }
         if (validValueFiled(valueText.getText())) {
+            if(valueText.getId().equals(VALUE_ID_FIELD_RESULTADO)) {
+                throw new IllegalArgumentException(ERROR_MESSAGE_FIELD_VALUE);
+            }
             throw new IllegalArgumentException(message(valueText));
         }
     }
 
     private String message(TextField keyText) {
-        return new StringBuilder().append("campo \"").append(keyText.getId()).append("\" obligatorio").toString();
+        return new StringBuilder().append("Campo *")
+                .append(keyText.getId())
+                .append("* obligatorio").toString();
     }
 
 

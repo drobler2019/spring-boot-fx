@@ -43,12 +43,12 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="1500.0" minHeight="700.0" minWidth="-Infinity" prefHeight="700.0" prefWidth="1500.0" styleClass="pane-container" stylesheets="@index.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jxf.jasypt.controller.JasyptController">
+<Pane maxHeight="-Infinity" maxWidth="1500.0" minHeight="700.0" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" styleClass="pane-container" stylesheets="@index.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jxf.jasypt.controller.JasyptController">
    <children>
-      <GridPane layoutX="14.0" layoutY="88.0" prefHeight="324.0" prefWidth="1451.0">
+      <GridPane layoutX="14.0" layoutY="88.0" prefHeight="324.0" prefWidth="1155.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="389.0" minWidth="10.0" prefWidth="123.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1345.0" minWidth="10.0" prefWidth="1328.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="389.0" minWidth="10.0" prefWidth="107.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1345.0" minWidth="10.0" prefWidth="1048.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints maxHeight="165.0" minHeight="10.0" prefHeight="132.0" vgrow="SOMETIMES" />
@@ -80,16 +80,8 @@
                   <Insets right="15.0" />
                </GridPane.margin>
             </Label>
-            <TextField fx:id="valor" prefHeight="50.0" prefWidth="1273.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="resultado" editable="false" prefHeight="50.0" prefWidth="775.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </TextField>
+            <TextField fx:id="valor" prefHeight="50.0" prefWidth="1052.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="resultado" editable="false" prefHeight="50.0" prefWidth="775.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <HBox prefHeight="50.0" prefWidth="451.0" GridPane.columnIndex="1">
                <children>
                   <TextField fx:id="llaveSecreta" prefHeight="50.0" prefWidth="373.0" stylesheets="@index.css">
@@ -110,14 +102,14 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Pane id="pane-container-buttons" layoutY="520.0" prefHeight="183.0" prefWidth="1500.0">
+      <Pane id="pane-container-buttons" layoutY="510.0" prefHeight="183.0" prefWidth="1200.0">
          <children>
-            <Button id="encriptar" layoutX="421.0" layoutY="75.0" mnemonicParsing="false" onAction="#encryptText" prefHeight="60.0" prefWidth="237.0" text="Encriptar">
+            <Button id="encriptar" layoutX="363.0" layoutY="62.0" mnemonicParsing="false" onAction="#encryptText" prefHeight="60.0" prefWidth="237.0" text="Encriptar">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Button id="desencriptar" layoutX="750.0" layoutY="75.0" mnemonicParsing="false" onAction="#decryptText" prefHeight="60.0" prefWidth="237.0" text="Desencriptar">
+            <Button id="desencriptar" layoutX="653.0" layoutY="62.0" mnemonicParsing="false" onAction="#decryptText" prefHeight="60.0" prefWidth="237.0" text="Desencriptar">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
