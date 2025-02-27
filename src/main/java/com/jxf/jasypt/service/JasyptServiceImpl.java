@@ -2,6 +2,7 @@ package com.jxf.jasypt.service;
 
 import javafx.scene.control.TextField;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
+import org.jasypt.exceptions.EncryptionInitializationException;
 import org.jasypt.exceptions.EncryptionOperationNotPossibleException;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,6 +14,7 @@ import static com.jxf.jasypt.constants.JasyptUtil.validValueFiled;
 @Service
 public class JasyptServiceImpl implements JasyptService {
 
+    private static final String ERROR_MESSAGE_ASCII = "la llave secreta no es ASCII";
     private final ObjectFactory<PooledPBEStringEncryptor> objectFactory;
 
     public JasyptServiceImpl(@Qualifier("encryptor") ObjectFactory<PooledPBEStringEncryptor> objectFactory) {
@@ -21,12 +23,17 @@ public class JasyptServiceImpl implements JasyptService {
 
     @Override
     public String encrypt(TextField secretKey, TextField value) {
-            validateValues(secretKey, value);
-            var keyText = secretKey.getText();
-            var valueText = value.getText();
-            var stringEncryptor = objectFactory.getObject();
-            stringEncryptor.setPassword(keyText);
+        validateValues(secretKey, value);
+        var keyText = secretKey.getText();
+        var valueText = value.getText();
+        var stringEncryptor = objectFactory.getObject();
+        stringEncryptor.setPassword(keyText);
+        try {
             return String.format(FORMAT_JASYPT, stringEncryptor.encrypt(valueText));
+        } catch (EncryptionInitializationException e) {
+            throw new EncryptionOperationNotPossibleException(ERROR_MESSAGE_ASCII);
+        }
+
     }
 
     @Override
@@ -38,8 +45,10 @@ public class JasyptServiceImpl implements JasyptService {
             var stringEncryptor = objectFactory.getObject();
             stringEncryptor.setPassword(keyText);
             return stringEncryptor.decrypt(valueText);
-        } catch (EncryptionOperationNotPossibleException e) {
+        } catch (EncryptionOperationNotPossibleException | StringIndexOutOfBoundsException e) {
             throw new EncryptionOperationNotPossibleException("Error: Llave secreta diferente o valor con formato incorrecto");
+        } catch (EncryptionInitializationException e) {
+            throw new EncryptionOperationNotPossibleException(ERROR_MESSAGE_ASCII);
         }
     }
 

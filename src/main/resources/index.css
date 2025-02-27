@@ -1,0 +1,33 @@
+.pane-container {
+  -fx-background-color: #1b1f23;
+}
+
+.label {
+ -fx-color: white;
+}
+
+#llaveSecreta,#valor,#resultado {
+ -fx-background-color: none;
+ -fx-border-color: white;
+ -fx-border-width: 2px;
+ -fx-border-radius: 5px;
+ -fx-text-fill: white;
+ -fx-font-size: 15px;
+}
+
+#llaveSecreta:focused ,#valor:focused ,#resultado:focused  {
+-fx-border-color: #6db33f
+}
+
+#encriptar,#desencriptar {
+ -fx-background-color: none;
+ -fx-border-color: white;
+ -fx-text-fill: white;
+ -fx-border-radius: 5px;
+ -fx-border-width: 2px;
+}
+
+#encriptar:hover,#desencriptar:hover {
+ -fx-background-color: white;
+ -fx-text-fill: black;
+}

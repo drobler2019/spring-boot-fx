@@ -20,6 +20,8 @@ public class JasyptInitializr implements ApplicationListener<JasyptEvent> {
     private Resource resource;
     @Value("classpath:/icon/spring.png")
     private Resource image;
+    @Value("classpath:/index.css")
+    private Resource stylesSheet;
     private final String applicationTitle;
     private final ApplicationContext applicationContext;
 
@@ -45,6 +47,7 @@ public class JasyptInitializr implements ApplicationListener<JasyptEvent> {
                 stage.getIcons().add(img);
                 stage.setTitle(applicationTitle);
                 var scene = new Scene(root);
+                scene.getStylesheets().add(stylesSheet.getURL().toExternalForm());
                 stage.setScene(scene);
                 stage.show();
             } catch (IOException e) {
