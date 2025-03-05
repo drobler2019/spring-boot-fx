@@ -42,7 +42,7 @@ public class JasyptController {
 
     public void decryptText() {
         try {
-            resultado.setText(jasyptService.decrypt(llaveSecreta,resultado));
+            resultado.setText(jasyptService.decrypt(llaveSecreta,valor));
             if(!validValueFiled(mensajeError.getText())) {
                 mensajeError.setText(null);
             }
