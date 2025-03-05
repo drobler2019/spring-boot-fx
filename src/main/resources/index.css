@@ -9,10 +9,10 @@
 #llaveSecreta,#valor,#resultado {
  -fx-background-color: none;
  -fx-border-color: white;
- -fx-border-width: 1px;
- -fx-border-radius: 5px;
+ -fx-border-width: 0 0 1px 0;
  -fx-text-fill: white;
  -fx-font-size: 15px;
+ -fx-border-start-start: none;
 }
 
 #llaveSecreta:focused ,#valor:focused ,#resultado:focused  {

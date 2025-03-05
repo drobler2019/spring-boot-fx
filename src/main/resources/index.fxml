@@ -80,11 +80,11 @@
                   <Insets right="15.0" />
                </GridPane.margin>
             </Label>
-            <TextField fx:id="valor" prefHeight="50.0" prefWidth="1052.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="resultado" editable="false" prefHeight="50.0" prefWidth="775.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="valor" prefHeight="30.0" prefWidth="1048.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="resultado" editable="false" prefHeight="30.0" prefWidth="775.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <HBox prefHeight="50.0" prefWidth="451.0" GridPane.columnIndex="1">
                <children>
-                  <TextField fx:id="llaveSecreta" prefHeight="50.0" prefWidth="373.0" stylesheets="@index.css">
+                  <TextField fx:id="llaveSecreta" prefHeight="40.0" prefWidth="373.0" stylesheets="@index.css">
                      <font>
                         <Font size="14.0" />
                      </font>
