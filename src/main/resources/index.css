@@ -9,7 +9,7 @@
 #llaveSecreta,#valor,#resultado {
  -fx-background-color: none;
  -fx-border-color: white;
- -fx-border-width: 0 0 1px 0;
+ -fx-border-width: 0 0 2px 0;
  -fx-text-fill: white;
  -fx-font-size: 15px;
  -fx-border-start-start: none;
